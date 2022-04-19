@@ -1,0 +1,12 @@
+@import './../styles/variables.scss';
+
+.header {
+    background: $dark;
+    width: 100%;
+    height: $headerHeight;
+    padding: 0 1.5rem;
+    @include breakpoint(md) {
+        padding: 0 3rem;
+    }
+    transition: 0.3s ease all;
+}

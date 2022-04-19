@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Toolbar } from '../components/toolbar';
 import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 export default function Home({ posts }) {
   const router = useRouter();
@@ -32,21 +32,40 @@ export default function Home({ posts }) {
 
 return (
   <div>
-    <Toolbar />
-    <div className={styles.main}>
+  
+    <motion.div initial="hidden" animate="visible" className={styles.main} variants={{
+      hidden: {
+        scale: .8,
+        opacity: 0
+      },
+      visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+          delay: .4
+        }
+      },
+    }}>
       <h1>Welcome to NZA</h1>
-
+      </motion.div>
+      
+    <div className={styles.main}>
       <h3>Recent Posts:</h3>
-
+    </div>
+    
       <div className={styles.feed}>
         {mappedPosts.length ? mappedPosts.map((p, index) => (
-          <div onClick={() => router.push(`/post/${p.slug.current}`)} key={index} className={styles.post}>
+          <motion.div onClick={() => router.push(`/post/${p.slug.current}`)} key={index} className={styles.post}whileHover={{
+            scale: 1.2,
+            transition: {
+              duration: .2
+            }
+          }}>
             <h3>{p.title}</h3>
             <img className={styles.mainImage} src={p.mainImage} />
-          </div>
+          </motion.div>
         )) : <>No Posts Yet</>}
       </div>
-    </div>
   </div>
 );
 }

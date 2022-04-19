@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap');
+
+$Monserrat: 'Montserrat', sans-serif;
+
+$dark: rgb(29,29,29);
+$light: white;
+$primary: rgb(162,162,246);
+
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+$borderRadius: 12px;
+
+$headerHeight: 100px;
+
+@mixin breakpoint($point) {
+    @if $point == md {
+        @media (min-width: 48em) {
+            @content;
+        }
+    }
+}
