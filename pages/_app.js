@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import react from 'react';
 import Header from '../components/Header';
 
-
-
 function MyApp({ Component, pageProps, router }) {
   return ( 
     <AnimatePresence>
