@@ -1,19 +1,13 @@
 module.exports = {
-  assets: ['./assets/fonts'],
-  reactStrictMode: true,
-  future: {
-    webpack5: true, // by default, if you customize webpack config, they switch back to version 4. 
-      // Looks like backward compatibility approach.
-  },
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.node = {
-        fs: 'empty'
-      }
+    assets: ['./assets/fonts'],
+    reactStrictMode: true,
+    future: {
+        webpack5: true,
+    },
+    webpack: (config, { isServer }) => {
+        config.resolve.fallback = {
+            fs: false
+        };
+        return config
     }
-
-    return config
-  }
 };
-
