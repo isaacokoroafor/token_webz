@@ -1,4 +1,4 @@
-import { collectAssets } from 'next/dist/build/webpack/plugins/middleware-plugin';
+//import { collectAssets } from 'next/dist/build/webpack/plugins/middleware-plugin';
 import React from 'react';
 import classes from './Header.module.scss';
 import {BiMenuAltRight} from 'react-icons/bi';
