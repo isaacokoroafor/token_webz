@@ -5,6 +5,15 @@ import imageUrlBuilder from '@sanity/image-url';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import { BrowserRouter as Router } from "react-router-dom";
+import MyApp from "./_app";
+import ReactDOM from "react-dom";
+
+ReactDOM.render(
+    <Router> 
+      <MyApp />
+    </Router>, 
+    document.getElementById("root"));
 
 export default function Home({ posts }) {
   const router = useRouter();
